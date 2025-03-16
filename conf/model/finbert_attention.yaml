@@ -1,0 +1,8 @@
+_target_: src.models.finbert_attention.FinBERT_AttentionAdapter
+config:
+  embedding : "ProsusAI/finbert"
+  num_labels: 3
+  dropout_rate: 0.1
+  rmsnorm_eps: 1e-6
+  adapter_layer : 25
+  adapter_heads : 4

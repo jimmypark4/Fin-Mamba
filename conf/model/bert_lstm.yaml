@@ -1,0 +1,6 @@
+# conf/model/lstm.yaml
+_target_: src.models.bert_lstm.Lstm
+config:
+  embedding : "bert-base-uncased"
+
+  

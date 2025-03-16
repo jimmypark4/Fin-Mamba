@@ -1,0 +1,5 @@
+_target_: src.models.finbert.FinBERT
+config:
+  embedding : "ProsusAI/finbert"
+  # num_heads: 4
+  # num_layers: 2

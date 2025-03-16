@@ -1,0 +1,5 @@
+# conf/model/cnn_lstm.yaml
+_target_: src.models.cnn_lstm.CnnLstm
+
+config:
+  embedding : "bert-base-uncased"

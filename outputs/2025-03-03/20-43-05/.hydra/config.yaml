@@ -1,0 +1,30 @@
+experiment:
+  name: default_experiment
+  seed: 34
+  checkpoint_dir: ${hydra:run.dir}/checkpoints
+  metric_dir: ${hydra:run.dir}/checkpoints
+data:
+  csv_path: ./data/data_fiqa1.csv
+  batch_size: 8
+  num_workers: 2
+  test_size: 0.2
+  valid_size: 0.1
+training:
+  epochs: 10
+  learning_rate: 1.0e-06
+  early_stopping_patience: 2
+  weight_decay: 0.01
+optuna:
+  enabled: false
+  n_trials: 1000
+model:
+  _target_: src.models.finbert_lora.FinBERT_LoRA
+  config:
+    embedding: ProsusAI/finbert
+    num_labels: 3
+    lora_r: 8
+    lora_alpha: 32
+    lora_dropout: 0.2
+    target_modules:
+    - query
+    - value

@@ -1,0 +1,5 @@
+# conf/model/mamba.yaml
+_target_: src.models.bert_mamba.LstmMamba
+config:
+  embedding : "bert-base-uncased"
+

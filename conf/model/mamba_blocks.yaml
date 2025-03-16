@@ -1,0 +1,10 @@
+# conf/model/mamba_blocks.yaml
+_target_: src.models.mamba_blocks.MambaBlocks
+
+config:
+  embedding: "state-spaces/mamba-130m-hf"
+  num_labels: 3
+  num_mamba_blocks: 7  # <-- 기본값 (실험하면서 1~100까지 sweep 가능)
+  d_state: 16
+  d_conv: 4
+  expand: 2

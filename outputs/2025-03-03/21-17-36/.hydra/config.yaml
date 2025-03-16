@@ -1,0 +1,32 @@
+experiment:
+  name: default_experiment
+  seed: 34
+  checkpoint_dir: ${hydra:run.dir}/checkpoints
+  metric_dir: ${hydra:run.dir}/checkpoints
+data:
+  csv_path: ./data/data_fiqa1.csv
+  batch_size: 8
+  num_workers: 2
+  test_size: 0.2
+  valid_size: 0.1
+training:
+  epochs: 10
+  learning_rate: 1.0e-06
+  early_stopping_patience: 2
+  weight_decay: 0.01
+optuna:
+  enabled: enabled
+  n_trials: 1000
+model:
+  _target_: src.models.finbert_mamba3.FinBERT_Mamba3
+  config:
+    embedding: ProsusAI/finbert
+    num_labels: 3
+    dropout_rate: 0.2
+    rmsnorm_eps: 1.0e-06
+    mamba_block:
+      d_state: 16
+      d_conv: 4
+      expand: 2
+      num_adapter_layers: 25
+    adapter_gate_dim: 768

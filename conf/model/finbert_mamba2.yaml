@@ -1,0 +1,11 @@
+_target_: src.models.finbert_mamba2.FinBERT_Mamba2
+config:
+  embedding : "ProsusAI/finbert"
+  num_labels: 3
+  dropout_rate: 0.1
+  rmsnorm_eps: 1e-6
+  mamba_block:
+    d_state: 16
+    d_conv: 4
+    expand: 2
+    num_cycles: 1  # (6 MambaBlock + 1 AttentionBlock) 사이클 수

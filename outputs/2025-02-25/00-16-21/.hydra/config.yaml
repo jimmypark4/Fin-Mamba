@@ -1,0 +1,21 @@
+experiment:
+  name: default_experiment
+  seed: 42
+  checkpoint_dir: ${hydra:run.dir}/checkpoints
+  metric_dir: ${hydra:run.dir}/checkpoints
+data:
+  csv_path: ./data/data_phrasebank.csv
+  batch_size: 16
+  num_workers: 2
+  test_size: 0.2
+training:
+  epochs: 10
+  learning_rate: 1.0e-05
+  early_stopping_patience: 5
+optuna:
+  enabled: true
+  n_trials: 100
+model:
+  _target_: src.models.lstm_xgboost.LstmXgboost
+  config:
+    embedding: bert-base-uncased

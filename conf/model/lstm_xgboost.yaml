@@ -1,0 +1,6 @@
+# conf/model/lstm_xgboost.yaml
+_target_: src.models.lstm_xgboost.LstmXgboost
+config:
+  embedding : "bert-base-uncased"
+
+  

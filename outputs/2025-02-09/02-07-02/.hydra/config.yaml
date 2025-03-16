@@ -1,0 +1,25 @@
+experiment:
+  name: default_experiment
+  seed: 42
+  checkpoint_dir: ${hydra:run.dir}/checkpoints
+  metric_dir: ${hydra:run.dir}/checkpoints
+data:
+  csv_path: ./data/data_phrasebank.csv
+  batch_size: 16
+  num_workers: 2
+  test_size: 0.2
+training:
+  epochs: 100
+  learning_rate: 1.0e-05
+  early_stopping_patience: 10
+model:
+  _target_: src.models.gamba.GambaModel
+  config:
+    embedding: state-spaces/mamba-130m-hf
+    d_model: 800
+    d_state: 64
+    d_conv: 2
+    expand: 2
+    num_experts: 4
+    num_heads: 8
+    num_labels: 3

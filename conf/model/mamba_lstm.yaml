@@ -1,0 +1,4 @@
+# conf/model/mamba130m.yaml
+_target_: src.models.mamba_lstm.LstmMamba_2
+config:
+  embedding : "state-spaces/mamba-130m-hf"
